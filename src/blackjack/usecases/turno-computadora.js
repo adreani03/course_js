@@ -1,4 +1,4 @@
-import { pedirCarta, valorCarta, creatCartaHTML } from "./";
+import { pedirCarta, valorCarta, creatCartaHTML } from ".";
 
 /**
  * 
