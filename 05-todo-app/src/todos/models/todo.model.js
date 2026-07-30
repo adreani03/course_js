@@ -1,6 +1,5 @@
 import { v4 as uuid } from 'uuid';
 
-
 export class Todo {
     /**
      * 
@@ -13,4 +12,5 @@ export class Todo {
         this.createdAt = new Date();
     }
 
-}
+
+} 
