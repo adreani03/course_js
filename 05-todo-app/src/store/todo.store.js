@@ -10,7 +10,10 @@ const state = {
     todos: [
         new Todo('Piedra del alma'),
         new Todo('Piedra del infinito'),
-        new Todo('Piedra del tiempo')
+        new Todo('Piedra del tiempo'),
+        new Todo('Piedra del realidad'),
+        new Todo('Piedra del campo'),
+        new Todo('Piedra del cosmo'),
     ],
     filter: Filters.All,
 }
@@ -33,7 +36,7 @@ const getTodos = (filter = Filters.All) => {
 
         case Filters.Completed:
             return state.todos.filter((todo) => todo.done)
-            
+
         case Filters.Pending:
             return state.todos.filter((todo) => !todo.done);
 
@@ -53,7 +56,17 @@ const addTodo = (description) => {
 }
 
 const toggleTodo = (todoId) => {
-    throw new Error('Not implemented');
+
+    state.todos = state.todos.map(todo => {
+        if (todo.id === todoId) {
+            todo.done = !todo.done;
+        }
+
+        return todo;
+    });
+
+
+
 }
 
 const deleteTodo = (todoId) => {
@@ -71,7 +84,7 @@ const deleteCompleted = () => {
  * @param {Filters} newFilter 
  */
 const setFilter = (newFilter = Filters.All) => {
-    if(!Object.keys(Filters).includes(newFilter)){
+    if (!Object.keys(Filters).includes(newFilter)) {
         console.warn(`El filtro ${newFilter} no es valido`)
     }
 
